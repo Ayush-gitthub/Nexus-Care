@@ -1,0 +1,10 @@
+   # Python
+    env/
+    venv/
+    *.pyc
+
+    # Node
+    node_modules/
+
+    # Secrets
+    .env
