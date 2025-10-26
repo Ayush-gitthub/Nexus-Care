@@ -1,135 +1,94 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/* === CSS for React Bits Components === */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* For TextTrail */
+.text-trail {
+  width: 100%;
+  height: 150px; /* Adjust height as needed */
+  cursor: pointer;
+  touch-action: none;
+}
 
-/* NexusCare Design System - Calm, Professional, Trustworthy */
+/* For LiquidEther */
+.liquid-ether-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
-@layer base {
-  :root {
-    /* Backgrounds - Soft, warm grays for comfort */
-    --background: 210 20% 98%;
-    --foreground: 215 25% 15%;
+/* For TiltedCard */
+.tilted-card-figure {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 2000px;
+  transform-style: preserve-3d;
+  margin: 0;
+}
 
-    /* Cards - Clean white with subtle warmth */
-    --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
-
-    /* Primary - Calming teal for trust and professionalism */
-    --primary: 173 80% 40%;
-    --primary-foreground: 0 0% 100%;
-    --primary-hover: 173 80% 35%;
-    --primary-glow: 173 80% 60%;
-
-    /* Secondary - Soft blue-gray for supporting elements */
-    --secondary: 210 30% 94%;
-    --secondary-foreground: 215 25% 20%;
-
-    /* Muted - Subtle backgrounds and disabled states */
-    --muted: 210 30% 96%;
-    --muted-foreground: 215 15% 50%;
-
-    /* Accent - Gentle blue for highlights */
-    --accent: 200 95% 88%;
-    --accent-foreground: 173 80% 35%;
-
-    /* Destructive - Muted red for errors */
-    --destructive: 0 70% 50%;
-    --destructive-foreground: 0 0% 100%;
-
-    /* Borders and inputs - Subtle definition */
-    --border: 210 25% 88%;
-    --input: 210 25% 90%;
-    --ring: 173 80% 40%;
-
-    /* Border radius - Friendly, rounded */
-    --radius: 0.75rem;
-
-    /* Gradients - Subtle depth */
-    --gradient-soft: linear-gradient(135deg, hsl(173 80% 95%), hsl(200 90% 95%));
-    --gradient-primary: linear-gradient(135deg, hsl(173 80% 40%), hsl(173 80% 50%));
-    
-    /* Shadows - Layered, soft depth */
-    --shadow-sm: 0 1px 2px 0 hsl(215 25% 15% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(215 25% 15% / 0.08), 0 2px 4px -1px hsl(215 25% 15% / 0.05);
-    --shadow-lg: 0 10px 15px -3px hsl(215 25% 15% / 0.1), 0 4px 6px -2px hsl(215 25% 15% / 0.05);
-    --shadow-glow: 0 0 20px hsl(173 80% 60% / 0.3);
-
-    /* Transitions - Smooth, satisfying */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .dark {
-    --background: 215 30% 10%;
-    --foreground: 210 20% 95%;
-
-    --card: 215 28% 12%;
-    --card-foreground: 210 20% 95%;
-
-    --popover: 215 28% 12%;
-    --popover-foreground: 210 20% 95%;
-
-    --primary: 173 80% 50%;
-    --primary-foreground: 215 30% 10%;
-    --primary-hover: 173 80% 55%;
-    --primary-glow: 173 80% 60%;
-
-    --secondary: 215 25% 18%;
-    --secondary-foreground: 210 20% 95%;
-
-    --muted: 215 25% 16%;
-    --muted-foreground: 215 15% 60%;
-
-    --accent: 173 70% 20%;
-    --accent-foreground: 173 80% 70%;
-
-    --destructive: 0 70% 45%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 215 25% 22%;
-    --input: 215 25% 20%;
-    --ring: 173 80% 50%;
+.tilted-card-mobile-alert {
+  display: none;
+}
+@media (max-width: 768px) {
+  .tilted-card-mobile-alert {
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    z-index: 10;
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  }
+.tilted-card-inner {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Custom utilities for NexusCare */
-@layer utilities {
-  .shadow-soft {
-    box-shadow: var(--shadow-md);
-  }
-  
-  .shadow-card {
-    box-shadow: var(--shadow-lg);
-  }
-  
-  .shadow-glow-primary {
-    box-shadow: var(--shadow-glow);
-  }
-  
-  .transition-smooth {
-    transition: var(--transition-smooth);
-  }
-  
-  .gradient-soft {
-    background: var(--gradient-soft);
-  }
-  
-  .gradient-primary {
-    background: var(--gradient-primary);
-  }
+.tilted-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.tilted-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  pointer-events: none;
+}
+
+.tilted-card-caption {
+  position: absolute;
+  background: black;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 14px;
+  pointer-events: none;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+}
+
+/* Demo class for TiltedCard overlay content */
+.tilted-card-demo-text {
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
